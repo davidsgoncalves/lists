@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+    background-color: #979797;
+    color: #3b3b3b;
+}
+
+.header {
+    font-size: 26px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: unset !important;
+}
+
+.panel {
+    border: 1px white solid;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px 30px;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table tr, .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table th {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    text-align: left;
+    color: #fff;
+    background-color: #3b3b3b;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.button {
+    background-color: #3b3b3b;
+    border: none;
+    color: #fff;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.table-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    width: 100%;
+}
