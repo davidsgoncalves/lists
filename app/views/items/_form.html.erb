@@ -1,0 +1,13 @@
+<%= form_with(model: item, local: true) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <%= form.submit item.new_record? ? 'Adicionar' : 'Editar' , class: 'button' %>
+<% end %>

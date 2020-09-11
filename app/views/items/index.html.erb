@@ -1,36 +1,39 @@
+<% if flash.count.positive? %>
+  <div class="panel">
+    <p id="notice">
+      <%= notice %>
+    </p>
+  </div>
+<% end %>
+
 <div class="panel">
   <h1>INDEX DE ITEMS</h1>
 
   <table class="table">
     <thead>
     <tr>
+      <th>ID</th>
       <th>Título</th>
       <th>Descrição</th>
       <th />
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Comprar Carne</td>
-      <td>E peixe também</td>
-      <td style="text-align: right">
-        <a class="button">Excluir</a>
-        <a class="button">Editar</a>
-        <a class="button">Ver</a>
-      </td>
-    </tr>
-    <tr>
-      <td>Comprar Leite</td>
-      <td>E queijo também</td>
-      <td style="text-align: right">
-        <a class="button">Excluir</a>
-        <a class="button">Editar</a>
-        <a class="button">Ver</a>
-      </td>
-    </tr>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td style="text-align: right">
+          <%= link_to 'Excluir', item, class: 'button', method: :delete, data: { confirm: 'Você tem certeza?'} %>
+          <%= link_to 'Editar', edit_item_path(item), class: 'button' %>
+          <%= link_to 'Ver', item, class: 'button' %>
+        </td>
+      </tr>
+    <% end %>
     </tbody>
   </table>
   <div class="table-footer">
-    <a class="button">Adicionar</a>
+    <%= link_to 'Adicionar', new_item_path, class: 'button' %>
   </div>
 </div>

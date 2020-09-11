@@ -34,6 +34,7 @@ body {
     background-color: #fff;
     border-radius: 5px;
     padding: 20px 30px;
+    margin-bottom: 15px;
 }
 
 .table {
@@ -79,4 +80,44 @@ body {
     justify-content: flex-end;
     margin-top: 10px;
     width: 100%;
+}
+
+input {
+    border: 1px gray solid;
+    border-radius: 3px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+.menu-container {
+    list-style-type: none;
+    margin: 0 0 15px 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.menu-item {
+    float: left;
+}
+
+.menu-item a {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #3b3b3b;
+    font-weight: bold;
+}
+
+.menu-item a:hover {
+    background-color: #d5d5d5 !important;
 }
