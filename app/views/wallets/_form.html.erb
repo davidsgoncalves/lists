@@ -1,0 +1,8 @@
+<%= form_with(model: wallet, local: true) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <%= form.submit wallet.new_record? ? 'Adicionar' : 'Editar', class: 'button' %>
+<% end %>

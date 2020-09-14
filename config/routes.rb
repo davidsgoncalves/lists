@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   #
   resources :items
   resources :bills
+  resources :wallets
 
   root 'items#index'
 end

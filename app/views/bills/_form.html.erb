@@ -10,8 +10,13 @@
   </div>
 
   <div>
-    <%= form.label :deadline %>
-    <%= form.date_field :deadline %>
+    <%= form.label :due_date %>
+    <%= form.date_field :due_date %>
+  </div>
+
+  <div>
+    <%= form.label :wallet %>
+    <%= form.collection_select(:wallet_id, Wallet.all, :id, :name) %>
   </div>
 
   <%= form.submit bill.new_record? ? 'Adicionar' : 'Editar' , class: 'button' %>

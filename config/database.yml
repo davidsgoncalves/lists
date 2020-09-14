@@ -7,11 +7,11 @@ default: &default
 
 development:
   <<: *default
-  database: lists_development
+  database: wallets_development
 
 test:
   <<: *default
-  database: lists_test
+  database: walletsrake _test
 
 production:
   <<: *default

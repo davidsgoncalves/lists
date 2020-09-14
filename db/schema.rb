@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_134422) do
+ActiveRecord::Schema.define(version: 2020_09_14_130713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,22 @@ ActiveRecord::Schema.define(version: 2020_09_11_134422) do
   create_table "bills", force: :cascade do |t|
     t.string "name", null: false
     t.decimal "value", precision: 8, scale: 2
-    t.date "deadline"
+    t.date "due_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "important"
+    t.bigint "wallet_id"
+    t.index ["wallet_id"], name: "index_bills_on_wallet_id"
   end
 
   create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "wallets", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false

@@ -1,16 +1,15 @@
 class BillsController < ApplicationController
-  # GET /Bills
+  before_action :find_bill, only: [:show, :update, :destroy]
+
   def index
     @bills = Bill.all
   end
 
-  # GET /Bills/new
   def new
     @bill = Bill.new
   end
 
   def show
-    @bill = Bill.find(params[:id])
   end
 
   def edit
@@ -30,8 +29,6 @@ class BillsController < ApplicationController
   end
 
   def update
-    @bill = Bill.find(params[:id])
-
     respond_to do |format|
       if @bill.update(bills_params)
         format.html { redirect_to bills_path, notice: 'Sucesso' }
@@ -42,7 +39,6 @@ class BillsController < ApplicationController
   end
 
   def destroy
-    @bill = Bill.find(params[:id])
     @bill.destroy
 
     respond_to do |format|
@@ -52,7 +48,11 @@ class BillsController < ApplicationController
 
   private
 
+  def find_bill
+    @bill = Bill.find(params[:id])
+  end
+
   def bills_params
-    params.require(:bill).permit(:name, :value, :deadline)
+    params.require(:bill).permit(:name, :value, :due_date, :wallet_id)
   end
 end

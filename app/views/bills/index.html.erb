@@ -16,6 +16,7 @@
       <th>Nome</th>
       <th>Valor</th>
       <th>Vencimento</th>
+      <th>Carteira</th>
       <th />
     </tr>
     </thead>
@@ -24,8 +25,9 @@
       <tr>
         <td><%= bill.id %></td>
         <td><%= bill.name %></td></td>
-        <td><%= bill.value %></td>
-        <td><%= bill.deadline %></td>
+        <td><%= number_to_currency(bill.value, :unit => "R$ ", :separator => ",", :delimiter => ".") %></td>
+        <td><%= bill.due_date.strftime('%d/%m/%Y') %></td>
+        <td><%= bill.wallet.name %></td>
         <td style="text-align: right">
           <%= link_to 'Excluir', bill, class: 'button', method: :delete, data: { confirm: 'Você tem certeza?'} %>
           <%= link_to 'Editar', edit_bill_path(bill), class: 'button' %>
