@@ -1,0 +1,18 @@
+<%= form_with(model: bill, local: true) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div>
+    <%= form.label :deadline %>
+    <%= form.date_field :deadline %>
+  </div>
+
+  <%= form.submit bill.new_record? ? 'Adicionar' : 'Editar' , class: 'button' %>
+<% end %>

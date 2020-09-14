@@ -1,3 +1,41 @@
+<% if flash.count.positive? %>
+  <div class="panel">
+    <p id="notice">
+      <%= notice %>
+    </p>
+  </div>
+<% end %>
+
 <div class="panel">
-  <h1>LISTA DE CONTAS</h1>
+  <h1>INDEX DE CONTAS</h1>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Valor</th>
+      <th>Vencimento</th>
+      <th />
+    </tr>
+    </thead>
+    <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.id %></td>
+        <td><%= bill.name %></td></td>
+        <td><%= bill.value %></td>
+        <td><%= bill.deadline %></td>
+        <td style="text-align: right">
+          <%= link_to 'Excluir', bill, class: 'button', method: :delete, data: { confirm: 'Você tem certeza?'} %>
+          <%= link_to 'Editar', edit_bill_path(bill), class: 'button' %>
+          <%= link_to 'Ver', bill, class: 'button' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="table-footer">
+    <%= link_to 'Adicionar', new_bill_path, class: 'button' %>
+  </div>
 </div>
