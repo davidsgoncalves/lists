@@ -12,7 +12,25 @@
 #  wallet_id  :bigint
 #
 class Bill < ApplicationRecord
-  belongs_to :wallet
+  include Tester
+  belongs_to :wallet, optional: true
 
-  validates_presence_of :name, :value
+  validates_presence_of :value
+  validates_uniqueness_of :name
+
+  validate :validate_name
+
+  before_create do
+    # Este método vem do helper Tester
+    sum(2,2)
+  end
+
+  # Isto é uma validação personalizada
+  def validate_name
+    if self.name.nil?
+      errors.add(:name, 'precisa estar presente')
+    elsif self.name.length < 2
+      errors.add(:name, 'muito pequeno, precisar ter mais de 2 letras')
+    end
+  end
 end
