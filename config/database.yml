@@ -11,7 +11,7 @@ development:
 
 test:
   <<: *default
-  database: walletsrake _test
+  database: wallets_test
 
 production:
   <<: *default
